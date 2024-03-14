@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+  <section class="hero" id="home" aria-label="home">
+
+    <div class="article-info" style="width: 100%; text-align: right; margin-right: 2rem; display: flex; flex-direction: row; justify-content:end; align-items: center;">
+      <div style="display: flex; flex-direction: row; margin-right: 1rem; ">Author: <u><a href="mailto:<%article.author.email%>" style="color: rgb(68, 175, 199);"><%= article.author.name %></a></u></div>
+      <div style="margin-right: 2rem;"><%= article.createdAt.toLocaleDateString() %></u></div>
+      <% if(user) { %>
+        <% if(article.author.email === user.email) { %>
+        <a href="/articles/edit/<%= article.id %>" class="btn btn-primary" style="margin-right: 2rem;   background: #FF416C;  /* fallback for old browsers */
+          background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          " >Edit</a>
+      <% } %>
+      <% } %>
+    </div>
+
+      <div class="md-container">
+          <%- article.sanitizedHtml  %>
+        </div>
+  </section>
+
+
+
+<%- include('partials/footer') %>
+
+

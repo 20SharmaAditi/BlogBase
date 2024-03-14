@@ -1,0 +1,79 @@
+<%- include('partials/header') %>
+<%- include('partials/hero') %>
+      <!-- - #FEATURED POST -->
+      <section class="section feature" aria-label="feature" id="topics">
+        <div class="container">
+
+          <h2 class="headline headline-2 section-title">
+            <span class="span">Top Articles</span>
+          </h2>
+
+          <p class="section-text">
+            Featured articles
+          </p>
+
+          <ul class="feature-list">
+            <% articles.forEach(article => { %>
+            <li>
+              <div class="card feature-card">
+
+                <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
+                  <img src="<%=article.image%>" width="1602" height="903" loading="lazy"
+                    alt="<%= article.description %>" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-tag">
+                      <a href="#" class="span hover-2"><%= article.tags %></a>
+                    </div>
+
+                    <div class="wrapper">
+                      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                      <span class="span">3 mins read</span>
+                    </div>
+                  </div>
+
+                  <h3 class="headline headline-3">
+                    <a href="#" class="card-title hover-2">
+                      <%= article.title %>
+                    </a>
+                  </h3>
+
+                  <div class="card-wrapper">
+
+                    <div class="profile-card">
+                      <img src="/images/add-user_511882.png" width="48" height="48" loading="lazy" alt="Joseph"
+                        class="profile-banner">
+
+                      <div>
+                        <p class="card-title"><%= article.author.name %></p>
+
+                        <p class="card-subtitle"><%= article.createdAt.toLocaleDateString( 'en-GB',{
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        }) %></p>
+                      </div>
+                    </div>
+
+                    <a href="/articles/<%= article.slug%>" class="card-btn">Read more</a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+            <% }) %>   
+          </ul>
+
+          
+
+        </div>
+
+        <img src="images/shadow-3.svg" width="500" height="1500" loading="lazy" alt="" class="feature-bg">
+      </section>
+<%- include('partials/footer') %>

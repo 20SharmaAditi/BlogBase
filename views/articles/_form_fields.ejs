@@ -1,0 +1,51 @@
+<div class="input-wrapper">
+  <input required value="<%= article.title %>" type="text" name="title" id="title" placeholder="Type the title"
+    class="input-field" autocomplete="off">
+</div>
+
+<div class="input-wrapper" style="margin-top: 2rem;">
+  <input required value="<%= user.name %>" type="text" name="authorName"
+    class="input-field" autocomplete="off">
+</div>
+
+<div class="input-wrapper" style="margin-top: 2rem;">
+  <input required value="<%= user.email %>" type="text" name="email" required
+    class="input-field" autocomplete="off">
+</div>
+
+<div class="input-wrapper" style="margin-top: 2rem;">
+  <input name="description" id="description" value="<%= article.description %>" required
+    class="" autocomplete="off" placeholder="Enter short description">
+</div>
+
+<div class="input-wrapper" style="margin-top: 2rem;">
+  <input name="image" id="image" value="<%= article.image %>" required
+    class="" autocomplete="off" placeholder="Enter image url">
+</div>
+
+<div class="input-wrapper" style="margin-top: 2rem;">
+  <input name="tags" id="tags" value="<%= article.tags %>" required
+    class="" autocomplete="off" placeholder="Enter tags">
+</div>
+
+<div class="" style="margin-top: 2rem;">
+  <textarea name="markdown" id="markdown" required
+    class="" autocomplete="off" placeholder="Enter some markdown"><%= article.markdown %></textarea>
+</div>
+
+
+<a href="/" class="btn btn-primary" style="margin-top:2rem;">
+  <span class="span">Cancle</span>
+
+  <ion-icon name="close-circle-outline" aria-hidden="true"></ion-icon>
+</a>
+
+
+<button type="submit" class="btn btn-primary" style="margin-top: 1rem;">
+  <span class="span">Save</span>
+  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+</button>
+
+
+
+

@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+  <main class="form-signin">
+    <%- include('partials/message') %>
+    <form action="/auth/signup" method="post" class="text-center">
+      <!-- <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+      <h1 class="h3 mb-3 fw-normal">Please sign up 🧑‍💻</h1>
+      
+      <div class="form-floating">
+        <input required type="text" class="form-control" id="name" name="name" placeholder="Name">
+        <label for="name">Name</label>
+      </div>
+      <div class="form-floating">
+        <input required type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+        <label for="email">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input required type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <label for="password">Password</label>
+      </div>
+      <div class="form-floating">
+        <input required type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+        <label for="confirmPassword">Confirm Password</label>
+      </div>
+      <div class="mb-3">
+        <label>
+          <a href="/auth/login">login</a>
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+      <p class="mt-5 mb-3 text-muted">© All rights reserved</p>
+    </form>
+  </main>
+<%- include('partials/footer') %>

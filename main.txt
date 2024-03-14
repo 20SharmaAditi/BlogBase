@@ -1,0 +1,80 @@
+<div class="container">
+    
+      <div class="text-right">
+        <a href="/articles/new" class="btn btn-success">New Article</a>
+      <% if (user) { %>
+        <a href="/auth/logout" class="btn btn-danger">Logout</a>
+      <% } %>
+    </div>
+    <div class="scroll" style="height: 100vh; overflow: scroll;">
+    <% articles.forEach(article => { %>
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between" style="width: 100%;">
+            <h4 class="card-title"><%= article.title %></h4>
+            <a href="mailto:<% article.author.email %>" class="text-primary"><label class="text-dark">Author:</label> <%= article.author.name %></a>
+          </div>
+          <div class="card-subtitle text-muted mb-2">
+            <%= article.createdAt.toLocaleDateString() %>
+          </div>
+          <div class="card-text mb-2"><%= article.description %></div>
+          <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+          <% if (user && user.email === article.author.email) { %> 
+            <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          <% } %> 
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  </div>
+
+
+  <div class="container">
+    <h1 class="mt-4 mb-4 text-center">New Article</h1>
+
+    <form action="/articles" method="POST">
+      <%- include('_form_fields') %>
+    </form>
+  </div>
+
+
+<a href="/" class="btn btn-secondary">Cancel</a>
+<button type="submit" class="btn btn-primary">Save</button>
+
+
+  <div class="container">
+    <h1 class="mb-1 mt-2 text-center"><%= article.title %></h1>
+    <div class="text-muted mb-2 text-right">
+      Author: <a href="mailto:<%article.author.email%>">
+        <%= article.author.name %>
+        </a>
+    </div class='container'>
+    <div class="text-muted mb-2 text-right">
+      <%= article.createdAt.toLocaleDateString() %>
+    </div class='container'>
+    <div class="d-flex flex-row-reverse p-1">
+    <a href="/" class="btn btn-secondary">All Articles</a>
+    <% if(user) { %>
+      <% if(article.author.email === user.email) { %>
+      <a href="/articles/edit/<%= article.id %>" class="btn btn-info mr-3">Edit</a>
+    <% } %>
+    <% } %>
+    </div>
+    <div id="article" class="scroll" style="height: 100vh; overflow: scroll;">
+      <%- article.sanitizedHtml %>
+    </div>
+  </div>
+
+
+  <%- include('partials/header') %>
+  <div class="container">
+    <h1 class="mb-4">Edit Article</h1>
+
+    <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
+      <%- include('_form_fields') %>
+    </form>
+  </div>
+<%- include('partials/footer') %>

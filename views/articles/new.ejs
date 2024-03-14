@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+<section class="hero" id="home" aria-label="home">
+  <div class="container">
+
+    <div class="hero-content">
+
+      <form action="/articles" method="POST">
+        <%- include('_form_fields') %>
+      </form>
+
+    </div>
+
+    <div class="hero-banner">
+
+      <img src="/images/syntax-foder.png" width="327" height="490" alt="Wren Clark" class="w-100" style="transform: rotate(.3rad);">
+
+      <img src="/images/pattern-2.svg" width="27" height="26" alt="shape" class="shape shape-1">
+
+      <img src="/images/pattern-3.svg" width="27" height="26" alt="shape" class="shape shape-2">
+
+    </div>    
+
+    <img src="/images/shadow-1.svg" width="500" height="800" alt="" class="hero-bg hero-bg-1">
+
+    <img src="/images/shadow-2.svg" width="500" height="500" alt="" class="hero-bg hero-bg-2">
+
+  </div>
+</section>
+
+<%- include('partials/footer') %>
