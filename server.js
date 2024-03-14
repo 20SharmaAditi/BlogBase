@@ -12,7 +12,7 @@ const app = express();
 require("./config/passport-config")(passport);
 
 mongoose.connect(
-  "mongodb+srv://starshadow:pass123@starshadow.2zsalg5.mongodb.net/?retryWrites=true&w=majority" ||
+ process.env.PORT ||
     "mongodb://127.0.0.1:27017/blogs",
   {
     useNewUrlParser: true,
